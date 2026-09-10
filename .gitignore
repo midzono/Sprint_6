@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+
+# Виртуальное окружение
+venv/
+.venv/
+env/
+
+# IDE
+.idea/
+.vscode/
+
+# Allure
+allure_results/
+allure_report/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Логи
+*.log

@@ -1,5 +1,6 @@
 import allure
 import pytest
+from data import BASE_URL
 from pages.main_page import MainPage
 
 
@@ -20,9 +21,10 @@ class TestQuestions:
         (7, 'Да, обязательно. Всем самокатов! И Москве, и Московской области.')
     ])
     def test_answer_text_is_correct(self, driver, question_index, expected_answer):
+        driver.get(BASE_URL)
         main_page = MainPage(driver)
-        driver.get("https://qa-scooter.praktikum-services.ru/")
         main_page.click_question(question_index)
         actual_answer = main_page.get_answer_text(question_index)
         assert actual_answer == expected_answer, \
             f"Неверный текст для вопроса {question_index + 1}. Ожидалось: '{expected_answer}', получено: '{actual_answer}'"
+        

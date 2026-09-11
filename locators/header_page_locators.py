@@ -1,6 +1,8 @@
-from locators.base_locators import BaseLocators
+from selenium.webdriver.common.by import By
 
 
-class HeaderPageLocators(BaseLocators):
-    """Локаторы хедера страницы. Наследуются от BaseLocators."""
-    pass
+class HeaderPageLocators:
+    """Локаторы хедера страницы."""
+    LOGO_SCOOTER = [By.XPATH, "//img[@alt='Scooter']"]
+    LOGO_YANDEX = [By.XPATH, "//img[@alt='Yandex']"]
+    

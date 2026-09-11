@@ -14,8 +14,6 @@ class OrderPageLocators:
     # Вторая форма
     INPUT_WHEN = [By.XPATH, "//input[@placeholder='* Когда привезти самокат']"]
     INPUT_RENTAL_PERIOD = [By.XPATH, "//div[@class='Dropdown-placeholder']"]
-    CHECKBOX_COLOR_BLACK = [By.ID, "black"]
-    CHECKBOX_COLOR_GREY = [By.ID, "grey"]
     INPUT_COMMENT = [By.XPATH, "//input[@placeholder='Комментарий для курьера']"]
     BUTTON_ORDER = [By.XPATH, "//button[contains(@class, 'Button_Middle') and text()='Заказать']"]
     BUTTON_CONFIRM_ORDER = [By.XPATH, "//button[text()='Да']"]
@@ -32,3 +30,9 @@ class OrderPageLocators:
     def rental_period_option(period):
         """Возвращает локатор для периода аренды по его названию."""
         return [By.XPATH, f"//div[text()='{period}']"]
+
+    @staticmethod
+    def color_checkbox(color):
+        """Возвращает локатор чекбокса цвета: 'black' или 'grey'."""
+        return [By.ID, color]
+    

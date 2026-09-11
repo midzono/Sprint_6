@@ -1,5 +1,6 @@
 import allure
 import pytest
+from data import BASE_URL
 from pages.main_page import MainPage
 from pages.order_page import OrderPage
 
@@ -27,18 +28,11 @@ class TestOrderFlow:
         )
     ])
     def test_successful_order(self, driver, order_button, customer_info, rental_info):
+        driver.get(BASE_URL)
         main_page = MainPage(driver)
-        driver.get("https://qa-scooter.praktikum-services.ru/")
-
-        # Выбор точки входа в зависимости от параметра
-        if order_button == 'header':
-            main_page.click_order_button_header()
-        else:
-            main_page.click_order_button_middle()
+        main_page.click_order_button(order_button)
 
         order_page = OrderPage(driver)
-
-        # Заполнение первой формы
         order_page.fill_first_form(
             customer_info['name'],
             customer_info['surname'],
@@ -46,8 +40,6 @@ class TestOrderFlow:
             customer_info['metro'],
             customer_info['phone']
         )
-
-        # Заполнение второй формы
         order_page.fill_second_form(
             rental_info['when'],
             rental_info['period'],
@@ -55,7 +47,7 @@ class TestOrderFlow:
             rental_info['comment']
         )
 
-        # Проверка появления сообщения об успешном заказе
         success_text = order_page.get_success_message()
         assert "Заказ оформлен" in success_text, \
             f"Сообщение об успешном заказе не появилось. Получено: '{success_text}'"
+            

@@ -28,7 +28,7 @@
 
 ```
 Sprint_6/
-├── allure_results/       # Результаты тестов для Allure (создаётся при запуске)
+├── allure_results/       # Результаты тестов для Allure
 ├── locators/             # Локаторы элементов
 │   ├── __init__.py
 │   ├── base_locators.py
@@ -49,6 +49,7 @@ Sprint_6/
 ├── conftest.py           # Фикстуры (драйвер Firefox)
 ├── pytest.ini            # Настройки pytest
 ├── requirements.txt      # Зависимости
+├── .gitignore            # Игнорируемые файлы
 └── README.md
 ```
 
@@ -56,7 +57,7 @@ Sprint_6/
 
 1. Клонировать репозиторий и перейти в папку проекта:
    ```bash
-   git clone <ссылка-на-репозиторий>
+   git clone https://github.com/midzono/Sprint_6.git
    cd Sprint_6
    ```
 
@@ -64,6 +65,7 @@ Sprint_6/
    ```bash
    py -m pip install -r requirements.txt
    ```
+   > Если команда `py` не распознаётся, используйте `python`.
 
 3. Убедиться, что установлен браузер **Mozilla Firefox**
    (драйвер `geckodriver` Selenium подхватывает автоматически).
